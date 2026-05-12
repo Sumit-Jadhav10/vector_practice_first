@@ -14,7 +14,6 @@
 
 // }
 
-
 // #include <iostream>
 // #include <vector>
 // using namespace std;
@@ -45,14 +44,12 @@
 //     return 0;
 // }
 
-
 // #include <iostream>
 // #include <vector>
 // using namespace std;
 
 // int reverce(vector<int>& vac,int size){
 
-    
 //     int start = 0;
 //     int end = size - 1;
 //         for (int i = 0; i < size; i++)
@@ -63,7 +60,7 @@
 //             start++;
 //             end--;
 //         }
-//     }      
+//     }
 // }
 // int main()
 // {
@@ -83,25 +80,102 @@
 //     return 0;
 // }
 
-#include <iostream>
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// int main()
+// {
+//     vector<int> vac={1,2,3,-9,4,6};
+//      int currentsum=0,maxsum=INT_FAST8_MIN;
+//      for(int value:vac){
+//         currentsum+=value;
+//         maxsum=max(currentsum,maxsum);
+//         if (currentsum<0)
+//         {
+//             currentsum=0;
+//         }
+
+//      }
+// cout<<maxsum;
+
+//     return 0;
+// }
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// int main()
+// {
+//     vector<int> nums={1,2,3,4,5};
+//     int target;
+//     for (int i = 0; i < nums.size(); i++)
+//     {
+//         for (int j = i; j <= nums.size() - 1; j++)
+//         {
+//             for (int  k = i; k <= j; k++)
+//             {
+//                 cout<<nums[k];
+//             }
+//             cout<<" ";
+
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// int main()
+// {
+//     vector<int> vac={1,2,3,-9,4,6};
+//      int currentsum=0,maxsum=INT_FAST8_MIN;
+//      for(int value:vac){
+//         currentsum+=value;
+//         maxsum=max(currentsum,maxsum);
+//         if (currentsum<0)
+//         {
+//             currentsum=0;
+//         }
+
+//      }
+// cout<<maxsum;
+
+//     return 0;
+// }
+
 #include <vector>
+#include <iostream>
 using namespace std;
 
-int main()
-{
-    vector<int> vac={1,2,3,4,6,-3,-4,-7,9,9};
-     int currentsum=0,maxsum=INT_FAST8_MIN;
-     for(int value:vac){
-        currentsum+=value;
-        maxsum=max(currentsum,maxsum);
-        if (currentsum<0)
+ vector<int> sumoftwo(vector<int> nums,int target)
+ {
+    vector<int> ans;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        for (int j = i+1; j < nums.size(); j++)
         {
-            currentsum=0;
-        }
-        
-        
-     }
-cout<<maxsum;
+            if (nums[i]+nums[j]==target)
+            {
+                ans.push_back(i);
+                ans.push_back(j);
+                return ans;
+            }
 
+        }
+
+    }
+    return ans;
+
+ }
+int main(){
+    vector<int> nums={1,2,3,4,5,6};
+    int target= 9;
+    vector<int> ans =sumoftwo(nums,target);
+    cout<<ans[0]<<","<<ans[1];
     return 0;
 }
